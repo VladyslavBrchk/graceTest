@@ -30,4 +30,23 @@ export class SalesHelper {
     }
     return arr;
   }
+
+  async checkFilterOptionsAreVisible(option: string): Promise<boolean> {
+    let elements: any = null;
+    switch (option) {
+      case "Brand":
+        elements = await this.salesPage.getFilterBrandOptions();
+        break;
+      case "Year":
+        elements = await this.salesPage.getFilterYearOptions();
+        break;
+    }
+    for (const element of elements) {
+      if (!(await element.isVisible())) {
+        return false;
+      }
+    }
+    return true;
+  }
+
 }

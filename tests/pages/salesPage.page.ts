@@ -3,9 +3,9 @@ import { Page } from './page';
 
 const canvas: string = 'div[tabindex="0"] canvas';
 const salesSubItem: string = '[class*="Sales_subItem"]'
-const filterMenu: string = '[class = ant-select-selector]'
-const filterBrandOption: string = '#rc_select_0_list ~ [class=rc-virtual-list] div[class*=ant-select-item-option-content]'
-const filterYearOption: string = '#rc_select_1_list ~ [class=rc-virtual-list] div[class*=ant-select-item-option-content]'
+const filterMenu: string = 'div.ant-select-selector'
+const filterBrandOption: string = '#rc_select_0_list ~ .rc-virtual-list div.ant-select-item-option-content'
+const filterYearOption: string = '#rc_select_1_list ~ .rc-virtual-list div.ant-select-item-option-content'
 const tab: string = '[role="tab"]'
 
 export class SalesPage extends Page {
@@ -28,16 +28,16 @@ export class SalesPage extends Page {
         return await element.textContent() ?? "";
     }
 
-    async getFilterMenu(): Promise<Locator[]> {
+    async getFilterMenus(): Promise<Locator[]> {
         await this.page.waitForSelector(filterMenu);
         return await super.getElements(filterMenu)
     }
 
-    async getFilterBrandOption(): Promise<Locator[]> {
+    async getFilterBrandOptions(): Promise<Locator[]> {
         return await super.getElements(filterBrandOption)
     }
 
-    async getFilterYearOption(): Promise<Locator[]> {
+    async getFilterYearOptions(): Promise<Locator[]> {
         return await super.getElements(filterYearOption)
     }
 
@@ -46,17 +46,17 @@ export class SalesPage extends Page {
     }
 
     async clickFilterMenu(index: number): Promise<void> {
-        const elements = await this.getFilterMenu();
+        const elements = await this.getFilterMenus();
         await super.clickLocatorByIndex(elements, index)
     }
 
     async clickFilterBrandOption(index: number): Promise<void> {
-        const elements = await this.getFilterBrandOption();
+        const elements = await this.getFilterBrandOptions();
         await super.clickLocatorByIndex(elements, index)
     }
 
     async clickFilterYearOption(index: number): Promise<void> {
-        const elements = await this.getFilterYearOption();
+        const elements = await this.getFilterYearOptions();
         await super.clickLocatorByIndex(elements, index)
     }
 

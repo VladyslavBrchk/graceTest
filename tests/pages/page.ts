@@ -42,10 +42,7 @@ export class Page {
     async hoverLocatorCoordinates(locator: Locator, x: number, y: number) {
         await locator.hover({ position: { x: x, y: y }});
     }
-   
-    async pressKey(key: string): Promise<void> {
-        await this.page.keyboard.press(key)
-    }
+
 
     async enterText(locator: Locator, text: string) {
         await locator.fill(text);
