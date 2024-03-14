@@ -23,6 +23,10 @@ export class Page {
         return await this.page.locator(selector).all();
     }
 
+    async getElementText(locator: Locator) {
+        return locator.textContent();
+      }
+
     async clickLocator(locator: Locator) {
         await locator.click();
     }
