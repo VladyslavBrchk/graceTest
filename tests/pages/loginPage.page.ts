@@ -38,8 +38,8 @@ export class LoginPage extends Page {
     }
 
     async loginWithValidCreds(): Promise<void> {
-        await this.enterLogin("qa@grace-technology.io");
-        await this.enterPassword("123456");
+        await this.enterLogin(process.env.ADMIN_EMAIL ?? "");
+        await this.enterPassword(process.env.ADMIN_PASSWORD ?? "");
         await this.clickLoginButton()
     }
 }
