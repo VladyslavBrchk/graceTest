@@ -4,7 +4,6 @@ import { SalesPage } from "../tests/pages/salesPage.page";
 import { LoginPage } from "../tests/pages/loginPage.page";
 import { SalesHelper } from "../tests/helpers/sales.helper";
 import { UrlHelper } from "../tests/helpers/url.helper";
-import { AdminAPI } from "../tests/api/admin.api";
 
 type MyFixtures = {
     basePage: Page;
@@ -12,7 +11,6 @@ type MyFixtures = {
     salesPage: SalesPage;
     salesHelper: SalesHelper;
     urlHelper: UrlHelper;
-    adminAPI: AdminAPI
 };
 
 export const test = base.extend<MyFixtures>({
@@ -30,8 +28,5 @@ export const test = base.extend<MyFixtures>({
     },
     urlHelper: async ({ }, use) => {
         await use(new UrlHelper());
-    },
-    adminAPI: async ({ request }, use) => {
-        await use(new AdminAPI(request));
     },
 });
