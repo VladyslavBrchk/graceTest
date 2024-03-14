@@ -5,7 +5,7 @@ const loginInput: string = '#login_email'
 const passwordInput: string = '#login_password'
 const loginButton: string = 'button[type="submit"]'
 
-class LoginPage extends Page {
+export class LoginPage extends Page {
     constructor(page: import('@playwright/test').Page) {
         super(page);
     }
@@ -43,5 +43,3 @@ class LoginPage extends Page {
         await this.clickLoginButton()
     }
 }
-
-export { LoginPage };

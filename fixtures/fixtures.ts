@@ -3,14 +3,14 @@ import { Page } from "../tests/pages/page";
 import { SalesPage } from "../tests/pages/salesPage.page";
 import { LoginPage } from "../tests/pages/loginPage.page";
 
-import { CanvasHelper } from "../tests/helpers/canvas.helper";
+import { SalesHelper } from "../tests/helpers/sales.helper";
 
 type MyFixtures = {
     basePage: Page;
     loginPage: LoginPage;
     salesPage: SalesPage;
 
-    canvasHelper: CanvasHelper;
+    salesHelper: SalesHelper;
     
 };
 
@@ -24,7 +24,7 @@ export const test = base.extend<MyFixtures>({
     salesPage: async ({ page }, use) => {
         await use(new SalesPage(page));
     },
-    canvasHelper: async ({ page }, use) => {
-        await use(new CanvasHelper());
+    salesHelper: async ({ salesPage, basePage }, use) => {
+        await use(new SalesHelper(salesPage, basePage));
     },
 });

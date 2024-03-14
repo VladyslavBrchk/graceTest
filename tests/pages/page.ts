@@ -1,6 +1,6 @@
 import { Locator, Page as PlaywrightPage } from '@playwright/test';
 
-class Page {
+export class Page {
     /**
     * @param {PlaywrightPage} page
     */
@@ -30,6 +30,10 @@ class Page {
     async clickLocatorCoordinates(locator: Locator, x: number, y: number) {
         await locator.click({ position: { x: x, y: y }});
     }
+
+    async clickLocatorByIndex(locator: Locator[], index: number): Promise<void> {
+        await locator[index].click();
+    }
     
     async hoverLocator(locator: Locator) {
         await locator.hover();
@@ -47,6 +51,12 @@ class Page {
         await locator.fill(text);
     }
 
-}
+    async waitForLocator(locator: Locator) {
+        await locator.waitFor({ state: 'visible' });
+      }
 
-export { Page };
+    async pause(ms: number) {
+        await this.page.waitForTimeout(ms);
+    }
+
+}
