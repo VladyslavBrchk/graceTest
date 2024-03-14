@@ -3,14 +3,12 @@ import { Page } from "../tests/pages/page";
 import { SalesPage } from "../tests/pages/salesPage.page";
 import { LoginPage } from "../tests/pages/loginPage.page";
 import { SalesHelper } from "../tests/helpers/sales.helper";
-import { UrlHelper } from "../tests/helpers/url.helper";
 
 type MyFixtures = {
     basePage: Page;
     loginPage: LoginPage;
     salesPage: SalesPage;
     salesHelper: SalesHelper;
-    urlHelper: UrlHelper;
 };
 
 export const test = base.extend<MyFixtures>({
@@ -25,8 +23,5 @@ export const test = base.extend<MyFixtures>({
     },
     salesHelper: async ({ salesPage, basePage }, use) => {
         await use(new SalesHelper(salesPage, basePage));
-    },
-    urlHelper: async ({ }, use) => {
-        await use(new UrlHelper());
     },
 });
