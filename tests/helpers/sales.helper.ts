@@ -1,9 +1,7 @@
-import { Locator } from '@playwright/test';
 import { SalesPage } from '../pages/salesPage.page';
 import { Page } from '../pages/page';
 
 export class SalesHelper {
-
   readonly salesPage: SalesPage;
   readonly basePage: Page;
 
@@ -48,5 +46,4 @@ export class SalesHelper {
     }
     return true;
   }
-
 }

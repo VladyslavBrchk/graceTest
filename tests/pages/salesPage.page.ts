@@ -50,9 +50,14 @@ export class SalesPage extends Page {
         return await super.getElements(tab);
     }
 
-    async clickFilterMenu(index: number): Promise<void> {
+    async clickFilterBrandMenu(): Promise<void> {
         const elements = await this.getFilterMenus();
-        await super.clickLocatorByIndex(elements, index);
+        await super.clickLocatorByIndex(elements, 0);
+    }
+
+    async clickFilterYearMenu(): Promise<void> {
+        const elements = await this.getFilterMenus();
+        await super.clickLocatorByIndex(elements, 1);
     }
 
     async clickFilterBrandOption(index: number): Promise<void> {
