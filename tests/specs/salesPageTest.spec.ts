@@ -42,12 +42,12 @@ test.describe('Sales Page Tests', () => {
 
     test('Check Data and Querry Params Not Change', async ({ salesPage, basePage, page }) => {
         let curURL = await basePage.getUrl();
-        let curBrandFilter = await salesPage.getFilterMenuText(0);
-        let curYearFilter = await salesPage.getFilterMenuText(1);
+        let curBrandFilter = await salesPage.getFilterBrandMenuText();
+        let curYearFilter = await salesPage.getFilterFilterYearText();
         await page.reload();
         await salesPage.waitForCanvas();
         expect(await basePage.getUrl()).toBe(curURL);
-        expect(await salesPage.getFilterMenuText(0)).toBe(curBrandFilter);
-        expect(await salesPage.getFilterMenuText(1)).toBe(curYearFilter);
+        expect(await salesPage.getFilterBrandMenuText()).toBe(curBrandFilter);
+        expect(await salesPage.getFilterFilterYearText()).toBe(curYearFilter);
     })
 })

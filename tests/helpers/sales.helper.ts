@@ -40,7 +40,8 @@ export class SalesHelper {
         break;
     }
     for (const element of elements) {
-      if (!(await element.isVisible())) {
+      await this.basePage.waitForLocator(element); //wait for animation of the dropdown menus to be played
+       if (!(await element.isVisible())) {
         return false;
       }
     }

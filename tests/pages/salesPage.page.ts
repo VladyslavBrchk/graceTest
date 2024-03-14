@@ -33,9 +33,14 @@ export class SalesPage extends Page {
         return await super.getElements(filterMenu);
     }
 
-    async getFilterMenuText(index: number): Promise<string>{
+    async getFilterBrandMenuText(): Promise<string>{
         const elements = await this.getFilterMenus();
-        return await super.getElementText(elements[index]) ?? "";
+        return await super.getElementText(elements[0]) ?? "";
+    }
+
+    async getFilterFilterYearText(): Promise<string>{
+        const elements = await this.getFilterMenus();
+        return await super.getElementText(elements[1]) ?? "";
     }
 
     async getFilterBrandOptions(): Promise<Locator[]> {
