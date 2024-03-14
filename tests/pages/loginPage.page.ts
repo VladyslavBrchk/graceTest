@@ -1,9 +1,9 @@
 import { Locator } from '@playwright/test';
 import { Page } from './page';
 
-const loginInput: string = '#login_email'
-const passwordInput: string = '#login_password'
-const loginButton: string = 'button[type="submit"]'
+const loginInput: string = '#login_email';
+const passwordInput: string = '#login_password';
+const loginButton: string = 'button[type="submit"]';
 
 export class LoginPage extends Page {
     constructor(page: import('@playwright/test').Page) {

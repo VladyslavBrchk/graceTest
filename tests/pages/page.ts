@@ -47,7 +47,6 @@ export class Page {
         await locator.hover({ position: { x: x, y: y }});
     }
 
-
     async enterText(locator: Locator, text: string) {
         await locator.fill(text);
     }
@@ -59,5 +58,4 @@ export class Page {
     async pause(ms: number) {
         await this.page.waitForTimeout(ms);
     }
-
 }
