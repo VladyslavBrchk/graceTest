@@ -30,7 +30,7 @@ test.describe('Sales Page Tests', () => {
                     }
                 }
             }
-        }        
+        }
     })
     
     test('Check Filter Dropdown Menus', async ({ salesPage, salesHelper }) => {

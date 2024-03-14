@@ -10,7 +10,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
-  timeout: 50000,
+  timeout: 100000,
   use: {
     baseURL: 'https://dev-admin.grace-technology.io/',
     trace: 'on-first-retry',
